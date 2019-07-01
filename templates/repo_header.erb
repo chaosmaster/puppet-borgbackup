@@ -95,7 +95,7 @@ if [ "$CMD" != 'run' ]; then
 fi
 
 # some helpers and error handling:
-info() { printf "\n%s %s\n\n" "$( date )" "$*" >&2; }
+info() { printf "\n%s %s\n\n" "$( date )" "$*"; }
 trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
 
 info "Starting backup"
