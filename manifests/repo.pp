@@ -160,7 +160,7 @@ define borgbackup::repo (
     if $crontabs == {} and $crontab_define == 'cron' {
       $_crontabs = {
         "borgbackup run ${reponame}" => {
-          'command' => "${configdir}/repo_${reponame}.sh run",
+          'command' => "${configdir}/repo_${reponame}.sh run > /tmp/borgbackup.log",
           'user'    => 'root',
           'hour'    => fqdn_rand(3,'borgbackup'),
           'minute'  => fqdn_rand(60,'borgbackup'),
