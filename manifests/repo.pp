@@ -94,7 +94,7 @@ define borgbackup::repo (
   if $passcommand == 'default' {
     include ::borgbackup::git
 
-    $_passcommand = "gpg --decrypt ${::borgbackup::git::git_home}/${::fqdn}/${reponame}_pass.gpg"
+    $_passcommand = "gpg --quiet --decrypt ${::borgbackup::git::git_home}/${::fqdn}/${reponame}_pass.gpg"
     $_env_vars = { 'GNUPGHOME' => $borgbackup::git::gpg_home } + $env_vars
     if $passphrase == '' {
       # default behaviour, save a random passphrase encrypted in git repo
