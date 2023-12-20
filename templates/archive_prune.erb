@@ -6,7 +6,7 @@ info "Pruning repository"
 # other machines' archives also:
 
 borg prune                          \
-    --prefix '{hostname}-<%= @archive_name %>'  \
+    --glob-archives '{hostname}-<%= @archive_name %>*'  \
 <% @prune_options.each do |opt| -%>
     --<%= opt -%>            \
 <% end -%>

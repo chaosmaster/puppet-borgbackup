@@ -70,7 +70,7 @@ if [ "$CMD" = 'check_icinga' ]; then
   if [ "$2" = '' ]; then
     last=`borg list |sort |tail -1|sed -e 's/^.*,//' -e 's/ \[.*\]$//'`
   else
-    last=`borg list --prefix "{hostname}-$2"|sort |tail -1|sed -e 's/^.*,//' -e 's/ \[.*\]$//'`
+    last=`borg list --glob-archives "{hostname}-$2*"|sort |tail -1|sed -e 's/^.*,//' -e 's/ \[.*\]$//'`
   fi
   if [ "$last" = '' ]; then
     echo "WARNING - no backup yet"
